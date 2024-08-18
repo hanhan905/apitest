@@ -1,0 +1,351 @@
+[INFO]-[2023-12-14 15:06:45,764]---------------------------------------------------------------------------------------------------------
+                          _         _      _____         _
+          __ _ _ __ (_)  / \  _   _| |_ __|_   _|__  ___| |_
+         / _` | '_ \| | / _ \| | | | __/ _ \| |/ _ \/ __| __|
+        | (_| | |_) | |/ ___ \ |_| | || (_) | |  __/\__ \ |_
+         \__,_| .__/|_/_/   \_\__,_|\__\___/|_|\___||___/\__|
+              |_|
+    -----------------------------------------------------------------开始执行接口自动化测试项目
+[INFO]-[2023-12-14 15:06:46,193]--------------成功连接到Mysql数据库：host:api.lemonban.com，database:future-----------------
+[INFO]-[2023-12-14 15:06:46,219]----------------------------------------------接口请求开始---------------------------------------------
+[INFO]-[2023-12-14 15:06:46,220]-接口名称：外卖注册
+[INFO]-[2023-12-14 15:06:46,220]-请求方式:post
+[INFO]-[2023-12-14 15:06:46,220]-请求路径:https://api.tttt.one/rest-v2/login/sign_up
+[INFO]-[2023-12-14 15:06:46,221]-请求头：{}
+[INFO]-[2023-12-14 15:06:46,221]-请求参数：{'password': '12345678', 'email': '68666499@qq.com'}
+[INFO]-[2023-12-14 15:06:46,222]-文件上传：None
+[INFO]-[2023-12-14 15:06:47,819]-响应头：content_type:application/json
+[INFO]-[2023-12-14 15:06:47,820]-预期结果：[{'contains': 'create_datetime'}]
+[INFO]-[2023-12-14 15:06:47,821]-实际结果：{'id': 49, 'email': '68666499@qq.com', 'create_datetime': '2023-12-14T07:06:46.721103+00:00', 'update_datetime': '2023-12-14T07:06:46.922850+00:00'}
+[INFO]-[2023-12-14 15:06:47,821]-接口请求成功！
+[INFO]-[2023-12-14 15:06:47,822]---------------------------------------------接口请求结束--------------------------------------------
+
+[INFO]-[2023-12-14 15:06:47,859]----------------------------------------------接口请求开始---------------------------------------------
+[INFO]-[2023-12-14 15:06:47,860]-接口名称：外卖登录
+[INFO]-[2023-12-14 15:06:47,860]-请求方式:post
+[INFO]-[2023-12-14 15:06:47,860]-请求路径:https://api.tttt.one/rest-v2/login/access_token
+[INFO]-[2023-12-14 15:06:47,861]-请求头：{}
+[INFO]-[2023-12-14 15:06:47,862]-请求参数：{'password': '12345678', 'email': '1144961647@qq.com'}
+[INFO]-[2023-12-14 15:06:47,862]-文件上传：None
+[INFO]-[2023-12-14 15:06:48,349]-响应头：content_type:application/json
+[INFO]-[2023-12-14 15:06:48,350]-预期结果：[{'contains': 'access_token'}]
+[INFO]-[2023-12-14 15:06:48,351]-实际结果：{'detail': 'Incorrect email or password'}
+[ERROR]-[2023-12-14 15:06:48,351]-断言失败:返回结果中不包含字符串access_token
+[INFO]-[2023-12-14 15:06:48,351]-接口请求失败！
+[INFO]-[2023-12-14 15:06:48,352]---------------------------------------------接口请求结束--------------------------------------------
+
+[ERROR]-[2023-12-14 15:06:48,405]-断言异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\assert_util.py", line 48, in validate_json_result
+    error_log("断言失败:返回结果中不包含字符串" + value + "")
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 断言失败:返回结果中不包含字符串access_token
+
+[ERROR]-[2023-12-14 15:06:48,416]-分析yaml文件异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\assert_util.py", line 48, in validate_json_result
+    error_log("断言失败:返回结果中不包含字符串" + value + "")
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 断言失败:返回结果中不包含字符串access_token
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 100, in analysis_yaml
+    AssertUtil().validate_json_result(expect, return_data, status_code)
+  File "E:\api_test_frame\commons\assert_util.py", line 60, in validate_json_result
+    error_log("断言异常：异常信息：%s" % str(traceback.format_exc()))
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 断言异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\assert_util.py", line 48, in validate_json_result
+    error_log("断言失败:返回结果中不包含字符串" + value + "")
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 断言失败:返回结果中不包含字符串access_token
+
+AssertionError('断言异常：异常信息：Traceback (most recent call last):\n  File "E:\\api_test_frame\\commons\\assert_util.py", line 48, in validate_json_result\n    error_log("断言失败:返回结果中不包含字符串" + value + "")\n  File "E:\\api_test_frame\\commons\\logger_util.py", line 89, in error_log\n    raise AssertionError(log_massage)\nAssertionError: 断言失败:返回结果中不包含字符串access_token\n')
+[ERROR]-[2023-12-14 15:06:48,878]-发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+[ERROR]-[2023-12-14 15:06:48,879]-分析yaml文件异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 60, in analysis_yaml
+    res = self.send_request(name=name, method=method, url=url, headers=headers, files=files,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 238, in send_request
+    error_log("发送请求异常：异常信息：%s" % str(traceback.format_exc() + repr(e)))
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+AssertionError('发送请求异常：异常信息：Traceback (most recent call last):\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 205, in send_request\n    self.last_headers = self.replace_load(headers)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 171, in replace_load\n    new_value = getattr(DebugTalk(), function_name)(*args_value.split(\',\'))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\hotloads\\debug_talk.py", line 41, in get_extract_data\n    return read_extract_yaml(node_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\yaml_util.py", line 47, in read_extract_yaml\n    return value[node_name]\n           ~~~~~^^^^^^^^^^^\nTypeError: \'NoneType\' object is not subscriptable\nTypeError("\'NoneType\' object is not subscriptable")')
+[ERROR]-[2023-12-14 15:06:48,950]-发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+[ERROR]-[2023-12-14 15:06:48,951]-分析yaml文件异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 60, in analysis_yaml
+    res = self.send_request(name=name, method=method, url=url, headers=headers, files=files,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 238, in send_request
+    error_log("发送请求异常：异常信息：%s" % str(traceback.format_exc() + repr(e)))
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+AssertionError('发送请求异常：异常信息：Traceback (most recent call last):\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 205, in send_request\n    self.last_headers = self.replace_load(headers)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 171, in replace_load\n    new_value = getattr(DebugTalk(), function_name)(*args_value.split(\',\'))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\hotloads\\debug_talk.py", line 41, in get_extract_data\n    return read_extract_yaml(node_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\yaml_util.py", line 47, in read_extract_yaml\n    return value[node_name]\n           ~~~~~^^^^^^^^^^^\nTypeError: \'NoneType\' object is not subscriptable\nTypeError("\'NoneType\' object is not subscriptable")')
+[ERROR]-[2023-12-14 15:06:49,024]-发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+[ERROR]-[2023-12-14 15:06:49,026]-分析yaml文件异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 60, in analysis_yaml
+    res = self.send_request(name=name, method=method, url=url, headers=headers, files=files,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 238, in send_request
+    error_log("发送请求异常：异常信息：%s" % str(traceback.format_exc() + repr(e)))
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+AssertionError('发送请求异常：异常信息：Traceback (most recent call last):\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 205, in send_request\n    self.last_headers = self.replace_load(headers)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 171, in replace_load\n    new_value = getattr(DebugTalk(), function_name)(*args_value.split(\',\'))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\hotloads\\debug_talk.py", line 41, in get_extract_data\n    return read_extract_yaml(node_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\yaml_util.py", line 47, in read_extract_yaml\n    return value[node_name]\n           ~~~~~^^^^^^^^^^^\nTypeError: \'NoneType\' object is not subscriptable\nTypeError("\'NoneType\' object is not subscriptable")')
+[ERROR]-[2023-12-14 15:06:49,152]-发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 201, in send_request
+    self.base_url = self.replace_load(self.base_url) + self.replace_load(url)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+[ERROR]-[2023-12-14 15:06:49,153]-分析yaml文件异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 201, in send_request
+    self.base_url = self.replace_load(self.base_url) + self.replace_load(url)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 60, in analysis_yaml
+    res = self.send_request(name=name, method=method, url=url, headers=headers, files=files,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 238, in send_request
+    error_log("发送请求异常：异常信息：%s" % str(traceback.format_exc() + repr(e)))
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 201, in send_request
+    self.base_url = self.replace_load(self.base_url) + self.replace_load(url)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+AssertionError('发送请求异常：异常信息：Traceback (most recent call last):\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 201, in send_request\n    self.base_url = self.replace_load(self.base_url) + self.replace_load(url)\n                                                       ^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 171, in replace_load\n    new_value = getattr(DebugTalk(), function_name)(*args_value.split(\',\'))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\hotloads\\debug_talk.py", line 41, in get_extract_data\n    return read_extract_yaml(node_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\yaml_util.py", line 47, in read_extract_yaml\n    return value[node_name]\n           ~~~~~^^^^^^^^^^^\nTypeError: \'NoneType\' object is not subscriptable\nTypeError("\'NoneType\' object is not subscriptable")')
+[ERROR]-[2023-12-14 15:06:49,228]-发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+[ERROR]-[2023-12-14 15:06:49,229]-分析yaml文件异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 60, in analysis_yaml
+    res = self.send_request(name=name, method=method, url=url, headers=headers, files=files,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 238, in send_request
+    error_log("发送请求异常：异常信息：%s" % str(traceback.format_exc() + repr(e)))
+  File "E:\api_test_frame\commons\logger_util.py", line 89, in error_log
+    raise AssertionError(log_massage)
+AssertionError: 发送请求异常：异常信息：Traceback (most recent call last):
+  File "E:\api_test_frame\commons\requests_util.py", line 205, in send_request
+    self.last_headers = self.replace_load(headers)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\requests_util.py", line 171, in replace_load
+    new_value = getattr(DebugTalk(), function_name)(*args_value.split(','))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\hotloads\debug_talk.py", line 41, in get_extract_data
+    return read_extract_yaml(node_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\api_test_frame\commons\yaml_util.py", line 47, in read_extract_yaml
+    return value[node_name]
+           ~~~~~^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+TypeError("'NoneType' object is not subscriptable")
+AssertionError('发送请求异常：异常信息：Traceback (most recent call last):\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 205, in send_request\n    self.last_headers = self.replace_load(headers)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\requests_util.py", line 171, in replace_load\n    new_value = getattr(DebugTalk(), function_name)(*args_value.split(\',\'))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\hotloads\\debug_talk.py", line 41, in get_extract_data\n    return read_extract_yaml(node_name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "E:\\api_test_frame\\commons\\yaml_util.py", line 47, in read_extract_yaml\n    return value[node_name]\n           ~~~~~^^^^^^^^^^^\nTypeError: \'NoneType\' object is not subscriptable\nTypeError("\'NoneType\' object is not subscriptable")')
+[INFO]-[2023-12-14 15:06:49,380]--------------------------------------------单条数据查询成功！-------------------------------------------
+[INFO]-[2023-12-14 15:06:49,380]-接口自动化测试垃圾数据处理结果为：{'id': 108100, 'reg_name': '裴育', 'pwd': '25D55AD283AA400AF464C76D713C07AD', 'mobile_phone': '18326074762', 'type': 1, 'leave_amount': Decimal('12500005.00'), 'reg_time': datetime.datetime(2023, 5, 8, 17, 42, 27)}
+[INFO]-[2023-12-14 15:06:49,384]------------------------------------------------接口自动化测试结束------------------------------------------------
+[INFO]-[2023-12-14 15:06:58,035]-接口自动化测试完成！

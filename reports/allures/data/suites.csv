@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Dec 19 19:10:07 CST 2023","Tue Dec 19 19:10:07 CST 2023","22","testcases.shop","test_shop","TestShop","","","删除用户","删除用户"
+"passed","Tue Dec 19 19:10:07 CST 2023","Tue Dec 19 19:10:08 CST 2023","23","testcases.shop","test_shop","TestShop","","","用户查询","用户查询"
+"passed","Tue Dec 19 19:10:07 CST 2023","Tue Dec 19 19:10:07 CST 2023","27","testcases.shop","test_shop","TestShop","","","修改用户","修改用户"
+"passed","Tue Dec 19 19:10:07 CST 2023","Tue Dec 19 19:10:07 CST 2023","43","testcases.shop","test_shop","TestShop","","","新增用户","新增用户"
+"passed","Tue Dec 19 19:10:07 CST 2023","Tue Dec 19 19:10:07 CST 2023","32","testcases.shop","test_shop","TestShop","","","用户登录","用户登录"
