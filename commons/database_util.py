@@ -3,25 +3,32 @@ from commons.logger_util import info_log, error_log
 import pymysql.cursors
 from commons.yaml_util import read_config_yaml
 import oracledb
+import psycopg2
 
 
 class MysqlUtil:
     """
     设置mysql数据库工具类
     """
+
     def __init__(self):
-        mysql_conf = {'host': read_config_yaml("MYSQL", "host"),
-                      'port': read_config_yaml("MYSQL", "port"),
-                      'user': read_config_yaml("MYSQL", "user"),
-                      'password': str(read_config_yaml("MYSQL", "password")),
-                      'database': read_config_yaml("MYSQL", "database")
-                      }
+        mysql_conf = {
+            'host': read_config_yaml("MYSQL", "host"),
+            'port': read_config_yaml("MYSQL", "port"),
+            'user': read_config_yaml("MYSQL", "user"),
+            'password': str(read_config_yaml("MYSQL", "password")),
+            'database': read_config_yaml("MYSQL", "database"),
+        }
         try:
             # 初始化mysql数据库连接
             self.db = pymysql.connect(**mysql_conf, charset="utf8")
             # 创建数据库游标，cursor=pymysql.cursors.DictCursor，将数据库表字段显示，以key-value形式展示
             self.cursor = self.db.cursor(cursor=pymysql.cursors.DictCursor)
-            info_log("-------------成功连接到Mysql数据库：host:{host}，database:{database}-----------------".format(**mysql_conf))
+            info_log(
+                "-------------成功连接到Mysql数据库：host:{host}，database:{database}-----------------".format(
+                    **mysql_conf
+                )
+            )
         except Exception as e:
             error_log(f"数据库连接失败:{e}")
 
@@ -39,7 +46,9 @@ class MysqlUtil:
         try:
             # 执行sql语句
             self.cursor.execute(sql)
-            info_log("-------------------------------------------单条数据查询成功！-------------------------------------------")
+            info_log(
+                "-------------------------------------------单条数据查询成功！-------------------------------------------"
+            )
             # 查询单条数据，结果返回
             return self.cursor.fetchone()
         except Exception as e:
@@ -55,7 +64,9 @@ class MysqlUtil:
         try:
             # 执行sql语句
             self.cursor.execute(sql)
-            info_log("------------------------------------------多条数据查询成功！-------------------------------------------")
+            info_log(
+                "------------------------------------------多条数据查询成功！-------------------------------------------"
+            )
             # 查询多条数据，结果返回
             return self.cursor.fetchall()
         except Exception as e:
@@ -75,7 +86,9 @@ class MysqlUtil:
                 self.cursor.execute(sql)
                 # 提交执行sql到数据库，完成insert或者update相关命令操作，非查询时使用提交
                 self.db.commit()
-                info_log("----------------------------------------插入/更新数据成功！-----------------------------------------")
+                info_log(
+                    "----------------------------------------插入/更新数据成功！-----------------------------------------"
+                )
         except Exception as e:
             # 出现异常时，数据库回滚
             self.db.rollback()
@@ -104,19 +117,25 @@ class OracleUtil:
     """
     设置oracle数据库工具类
     """
+
     def __init__(self):
-        oracle_conf = {'host': read_config_yaml("ORACLE", "host"),
-                       'port': read_config_yaml("ORACLE", "port"),
-                       'user': read_config_yaml("ORACLE", "user"),
-                       'password': str(read_config_yaml("ORACLE", "password")),
-                       'service_name': read_config_yaml("ORACLE", "service_name")
-                       }
+        oracle_conf = {
+            'host': read_config_yaml("ORACLE", "host"),
+            'port': read_config_yaml("ORACLE", "port"),
+            'user': read_config_yaml("ORACLE", "user"),
+            'password': str(read_config_yaml("ORACLE", "password")),
+            'service_name': read_config_yaml("ORACLE", "service_name"),
+        }
         try:
             # 初始化oracle数据库连接
             self.db = oracledb.connect(**oracle_conf, encoding="utf8")
             # 创建数据库游标
             self.cursor = self.db.cursor()
-            info_log("------------成功连接到Oracle数据库：host:{host}，service_name:{service_name}----------".format(**oracle_conf))
+            info_log(
+                "------------成功连接到Oracle数据库：host:{host}，service_name:{service_name}----------".format(
+                    **oracle_conf
+                )
+            )
         except Exception as e:
             error_log(f"数据库连接失败:{e}")
 
@@ -127,7 +146,9 @@ class OracleUtil:
         try:
             # 执行sql语句
             self.cursor.execute(sql)
-            info_log("-------------------------------------------单条数据查询成功！--------------------------------------------")
+            info_log(
+                "-------------------------------------------单条数据查询成功！--------------------------------------------"
+            )
             # 查询单条数据，结果返回
             return self.cursor.fetchone()
         except Exception as e:
@@ -143,7 +164,9 @@ class OracleUtil:
         try:
             # 执行sql语句
             self.cursor.execute(sql)
-            info_log("------------------------------------------多条数据查询成功！--------------------------------------------")
+            info_log(
+                "------------------------------------------多条数据查询成功！--------------------------------------------"
+            )
             # 查询多条数据，结果返回
             return self.cursor.fetchall()
         except Exception as e:
@@ -163,7 +186,9 @@ class OracleUtil:
                 self.cursor.execute(sql)
                 # 提交执行sql到数据库，完成insert或者update相关命令操作，非查询时使用
                 self.db.commit()
-                info_log("----------------------------------------插入/更新数据成功！-----------------------------------------")
+                info_log(
+                    "----------------------------------------插入/更新数据成功！-----------------------------------------"
+                )
         except Exception as e:
             # 出现异常时，数据库回滚
             self.db.rollback()
@@ -186,3 +211,61 @@ class OracleUtil:
         if self.db is not None:
             # 存在则关闭数据库对象
             self.db.close()
+
+
+class PgsqlUtil:
+    """
+    设置pgsql数据库工具类
+    """
+
+    def __init__(self):
+        pgsql_conf = {
+            'host': read_config_yaml('PGSQL', 'host'),
+            'port': read_config_yaml('PGSQL', 'port'),
+            'user': read_config_yaml('PGSQL', 'user'),
+            'password': str(read_config_yaml('PGSQL', 'password')),
+            'database': read_config_yaml('PGSQL', 'database'),
+        }
+        try:
+            # 初始化pgsql数据库连接
+            self.db = psycopg2.connect(**pgsql_conf)
+            # 创建数据库游标
+            self.cursor = self.db.cursor()
+            info_log(
+                "-------------成功连接到Pgsql数据库：host:{host}，database:{database}-----------------".format(
+                    **pgsql_conf
+                )
+            )
+
+        except Exception as e:
+            error_log(f'数据库连接失败:{e}')
+
+    def get_version(self):
+        """
+        获取数据库版本号
+        """
+        self.cursor.execute("SELECT VERSION()")
+        return self.cursor.fetchone()
+
+    def get_fetchone(self, sql):
+        """
+        获取单条数据查询
+        """
+        try:
+            # 执行sql语句
+            self.cursor.execute(sql)
+            info_log(
+                "-------------------------------------------单条数据查询成功！-------------------------------------------"
+            )
+            # 查询单条数据，结果返回
+            return self.cursor.fetchone()
+        except Exception as e:
+            error_log(f"单条数据查询错误！错误为：{e}")
+        finally:
+            # 关闭数据库，释放连接池
+            self.db.close()
+
+
+if __name__ == "__main__":
+    version = PgsqlUtil().get_version()
+    print(version)

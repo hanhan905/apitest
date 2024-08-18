@@ -12,8 +12,8 @@ BASE:
 # 日志配置
 LOG:
   log_level: info
-  console_log_format: '%(log_color)s[%(levelname)s]-[%(asctime)s]-%(message)s'
-  file_log_format: '[%(levelname)s]-[%(asctime)s]-%(message)s'
+  console_log_format: "%(log_color)s[%(levelname)s]-[%(asctime)s]-%(message)s"
+  file_log_format: "[%(levelname)s]-[%(asctime)s]-%(message)s"
 
 # 设置接口超时时间，单位/s
 API_TIMEOUT:
@@ -22,8 +22,8 @@ API_TIMEOUT:
 # jenkins配置
 JENKINS:
   url: http://127.0.0.1:8080/jenkins/
-  username: 'peiyu'
-  password: '123456'
+  username: "peiyu"
+  password: "123456"
   timeout: 30
   job_name: api_test_frame
 
@@ -42,6 +42,13 @@ ORACLE:
   port: 1521
   user: future
   password: 1234568
+
+PGSQL:
+  host: localhost
+  database: myblog
+  port: 5432
+  user: postgres
+  password: 123456
 
 # 钉钉通知配置
 DINGDING:
